@@ -51,12 +51,12 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   width: 17rem;
   height: 4rem;
   margin-left: auto;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   /* padding: 1.5rem 3rem; */
   background-color: #ff3e66;
   border-radius: 30px;
@@ -95,6 +95,32 @@ li {
 .icon-mobile-nav[name="close-outline"] {
   display: none;
 }
+
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #eef1f6e5;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2reem rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 9rem;
+}
+
+.sticky .btn-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /************************/
 /* Hero Section */
 /************************/
@@ -380,6 +406,10 @@ li {
   margin-top: 3rem;
 }
 
+.wherever-img img {
+  width: 85%;
+}
+
 /************************/
 /* HOW 2 */
 /************************/
@@ -444,6 +474,18 @@ li {
   font-size: 3.2rem;
   color: #ff3e66;
 }
+
+.vid-icon[name="pause-outline"] {
+  display: none;
+}
+
+.play-btn.playing .vid-icon[name="pause-outline"] {
+  display: block;
+}
+.play-btn.playing .vid-icon[name="play"] {
+  display: none;
+}
+
 .how-vid-tbox {
   padding-top: 4rem;
   padding-left: 10rem;
@@ -535,26 +577,29 @@ li {
 .section-pricing {
   padding: 10rem 10rem 0;
 }
-
-.btns-pricing {
-  margin: 0 auto;
-  padding: 0.2rem 0;
-  width: 14.1rem;
+.btns-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: 1px solid #dcdce1;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-
   margin-bottom: 4rem;
 }
 
-.btns-pricing button {
-  width: 47%;
+.btns-pricing {
+  display: inline-block !important;
+  margin: 0 auto;
+  padding: 0.2rem;
+  list-style: none;
+  text-align: center;
+  border: 1px solid #dcdce1;
+  border-radius: 30px;
+}
+
+.btns-pricing li {
+  display: inline-block;
+  margin: 0;
+}
+
+.btns-pricing a {
   border: none;
   background: none;
   cursor: pointer;
@@ -583,7 +628,9 @@ li {
   border-radius: 5px;
   align-self: start;
   position: relative;
+  transition: box-shadow 0.2s ease-in;
 }
+
 .table-header {
   padding-bottom: 3rem;
   border-bottom: 1px solid #dcdce1;
@@ -649,7 +696,8 @@ li {
   color: #4dcb7d;
 }
 
-.pricing-table.chosen {
+.pricing-table.chosen,
+.pricing-table:hover {
   border: none;
   border-top: 2px solid #ff3e66;
   box-shadow: 0 2.4rem 4rem rgba(110, 112, 133, 0.2);
@@ -887,6 +935,11 @@ footer {
   color: #686870;
 }
 
+.footer-link:hover,
+.footer-link:active {
+  text-decoration: underline;
+}
+
 .address-col {
   padding: 0 5rem;
   grid-column: 5/7;
@@ -897,13 +950,15 @@ footer {
   flex-direction: column;
   gap: 0.7rem;
 }
-.footer-add {
+.footer-add:link,
+.footer-add:visited {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
   font-size: 1.4rem;
   line-height: 1.3;
   color: #686870;
+  text-decoration: none;
 }
 
 .footer-add-icon {
@@ -956,12 +1011,10 @@ footer {
 }
 
 .btn-up {
-  position: absolute;
+  display: none;
+  position: fixed;
   bottom: 6%;
   right: 6%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #ea4d89;
   opacity: 50%;
   width: 3.6rem;
@@ -969,4 +1022,9 @@ footer {
   border-radius: 5px;
   font-size: 2rem;
   color: white;
+  transition: all 0.2s ease-in;
+}
+
+.btn-up:hover {
+  opacity: 100%;
 }
